@@ -1,31 +1,27 @@
-import React from 'react'
+import React from 'react';
+
+const initialGameboard = [
+  [null, null, null],
+  [null, null, null],
+  [null, null, null],
+];
 
 function GameBoard() {
   return (
     <ol id='game-board'>
-      <li>
-        <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ol>
-      </li>
-      <li>
-        <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ol>
-      </li>
-      <li>
-        <ol>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ol>
-      </li>
-    </ol>>
-  )
+      {initialGameboard.map((row, rowIndex) => {
+        <li key={rowIndex}>
+          <ol>
+            {row.map((playerSymbol, colIndex) => {
+              <li key={colIndex}>
+                <button>{playerSymbol}</button>
+              </li>;
+            })}
+          </ol>
+        </li>;
+      })}
+    </ol>
+  );
 }
 
-export default GameBoard
+export default GameBoard;
